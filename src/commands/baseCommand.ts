@@ -32,7 +32,15 @@ class BaseCommand {
         args.splice(0, 1)
 
         for (let i = 0; i <= this.params.length; i++) {
-            // Finish
+            if (this.params[i].type === 'string') {
+                continue // Always string, no point
+            } else if (this.params[i].type === 'number') {
+                try {
+                    a: number = args[i] as number
+                } catch {
+                    return 
+                }
+            }
         }
     }
 
